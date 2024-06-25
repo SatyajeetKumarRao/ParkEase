@@ -27,7 +27,7 @@ const Map = () => {
   const [markers, setMarkers] = useState([]);
   const mapRef = useRef();
 
-  const apiKey = "";
+  const apiKey = "AIzaSyAS3XTlGeM8QVeVZOoRfViUba8p5fbw6_Y";
 
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
@@ -73,6 +73,15 @@ const Map = () => {
         options={options}
         onLoad={onMapLoad}
       >
+        {currentLocation && (
+          <Marker
+            position={currentLocation}
+            icon={{
+              url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+            }}
+          />
+        )}
+
         {markers.map((marker) => (
           <Marker
             key={marker.place_id}
