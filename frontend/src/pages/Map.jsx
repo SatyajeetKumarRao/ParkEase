@@ -27,7 +27,7 @@ const Map = () => {
   const [markers, setMarkers] = useState([]);
   const mapRef = useRef();
 
-  const apiKey = "AIzaSyAS3XTlGeM8QVeVZOoRfViUba8p5fbw6_Y";
+  const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
 
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
